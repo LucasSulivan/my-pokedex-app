@@ -13,9 +13,7 @@ function App() {
     },
   ];
 
-  return <PokemonCard name={pokemonList[0].name} img={pokemonList[0].imgSrc}/>
-
+  return <PokemonCard pokemon={pokemonList[0]} />
 
 }
-
 export default App
