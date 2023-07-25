@@ -1,4 +1,5 @@
 import PokemonCard from './Components/PokemonCard'
+import NavBar from './Components/NavBar';
 import { useState } from 'react';
 import './App.css'
 
@@ -32,45 +33,11 @@ function App() {
     
     /*--------------STATES ------------*/
     const [index, setIndex] = useState(0)
-    const [prevVisible, setPrevDisplay] = useState({display:'none'})
-    const [nextVisible, setNextDisplay] = useState({display:'inline'})
-
-
-    const handlerClickNext=()=>{
-      if(index <= 3){ 
-        setIndex( index + 1)}
-
-        if(index == 3){
-          setNextDisplay({display:'none'})
-        }
-
-        setPrevDisplay({display : 'inline'})
-    }
-
-
-    const handlerClickPrev=()=>{
-      if(index < 2 ){
-        setPrevDisplay({display:'none'})
-      }
-      if(index >= 1){
-          setIndex( index - 1)
-        }
-        setNextDisplay({display:'inline'})
-    }
-
 
   return (
     <>
+      <NavBar index={index} setIndex={setIndex}/>
       <PokemonCard pokemon={pokemonList[index]} />
-      {
-        <div>
-          <button style={prevVisible}onClick={handlerClickPrev}>Prev</button>
-          <button style={nextVisible} onClick={handlerClickNext}>Next</button>
-
-        </div>
-      }
-      
-      
     </>
   )
 
