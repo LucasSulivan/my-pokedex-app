@@ -1,43 +1,25 @@
 import PropTypes from 'prop-types'
-import { useState } from 'react'
 
-function NavBar ({index, setIndex}) {
-    const [prevVisible,setPrevVisible] = useState('none')
-    const [nextVisible,setNextVisible] = useState('inline')
 
-    const handlerClickNext=()=>{
-        setPrevVisible('inline')
+function NavBar ({pokemonList , setIndex}) {
 
-            if(index < 3){ 
-                setIndex( index + 1)
-            }
-            if(index == 3) {
-                setNextVisible('none')
-            }
-    }
-
-    const handlerClickPrev=()=>{
-        setNextVisible('inline')
-
-        if( index < 2) {
-            setPrevVisible('none')
-        }
-        if(index >= 1){
-            setIndex( index - 1)
-          }
-    }
-
+const showPokemon =(indx)=>{
+   return setIndex(indx)
+}
     return (
         <div>
-            <button style={{display: prevVisible}} onClick={handlerClickPrev}>Prev</button>
-            <button style={{display: nextVisible}} onClick={handlerClickNext}>Next</button>
+            {pokemonList.map((poke,indx)=> (
+                <button onClick={()=> showPokemon(indx)} key={poke.name}>{poke.name}</button>
+                
+        
+            ))}
         </div>
     )
 }
 
 NavBar.propTypes = {
-    index: PropTypes.number.isRequired,
-    setIndex: PropTypes.elementType,
+    pokemonList: PropTypes.array,
+    setIndex: PropTypes.elementType
 }
 
 export default NavBar

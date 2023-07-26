@@ -36,8 +36,8 @@ function App() {
 
   return (
     <>
-      <NavBar index={index} setIndex={setIndex}/>
-      <PokemonCard pokemon={pokemonList[index]} />
+      <NavBar setIndex={setIndex} pokemonList={pokemonList}/>
+      <PokemonCard {...pokemonList[index]} />
     </>
   )
 
