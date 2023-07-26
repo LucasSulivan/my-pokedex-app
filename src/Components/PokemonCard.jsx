@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 
 function PokemonCard ({pokemon}) {
-
+    
     return  (       
     <div>
         {(pokemon.name !== "" && pokemon.imgSrc) 
